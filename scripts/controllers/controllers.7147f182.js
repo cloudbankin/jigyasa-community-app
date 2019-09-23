@@ -11035,6 +11035,7 @@
 
             resourceFactory.loanResource.get({loanId: routeParams.id, template: true, associations: 'charges,collateral,meeting,multiDisburseDetails',staffInSelectedOfficeOnly:true}, function (data) {
                 scope.loanaccountinfo = data;
+				scope.formData.fixedEmiAmount=data.fixedEmiAmount;
 
                 resourceFactory.loanResource.get({resourceType: 'template', templateType: 'collateral', productId: data.loanProductId, fields: 'id,loanCollateralOptions'}, function (data) {
                     scope.collateralOptions = data.loanCollateralOptions || [];
